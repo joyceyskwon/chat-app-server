@@ -1,9 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-Feed.create(name: 'test feed')
+puts "destroy feeds"
+Feed.destroy_all
+puts "create feeds"
+Feed.create!([{
+    name: 'test feed'
+},
+{
+    name: 'test feed2'
+}])
+puts "created feeds"
