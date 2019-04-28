@@ -10,5 +10,10 @@ class Api::V1::TweetsController < ApplicationController
       render json: {error: 'Could not create that tweet'}, status: 422
     end
   end
+
+  def destroy
+    @tweet = Tweet.find(params[:id])
+    @tweet.destroy
+  end
   
 end

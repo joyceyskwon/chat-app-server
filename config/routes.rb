@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :feeds, only: [:show]
-      resources :tweets, only: [:create]
+      resources :tweets, only: [:create, :destroy]
     end
   end
 
