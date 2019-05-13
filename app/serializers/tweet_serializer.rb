@@ -1,3 +1,3 @@
 class TweetSerializer < ActiveModel::Serializer
-  attributes :id, :content, :feed_id
+  attributes :id, :feed_id, :content, :created_at
 end
