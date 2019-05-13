@@ -5,7 +5,7 @@ class Api::V1::TweetsController < ApplicationController
     @feed = Feed.find(tweet_params[:feed_id])
     if @tweet.save
       @serialized_data = ActiveModelSerializers::Adapter::Json.new(TweetSerializer.new(@tweet)).serializable_hash
-      TweetChannel.broadcast_to (@feed, @serialized_data)
+      TweetChannel.broadcast_to @feed, @serialized_data
       head :ok
       # Broadcast the fact that this happened out to all the subscribers
     #   ActionCable.server.broadcast("feed_channel", @tweet)
