@@ -16,6 +16,15 @@ class Api::V1::FeedsController < ApplicationController
     end
   end
 
+  def show
+    @feed = Feed.find(params[:id])
+    if @feed
+      render json: {tweets: @feed.tweets}
+    else
+      render json: {error: 'That feed does not exist'}, status: 404
+    end 
+  end
+
   private
 
   def feed_params
